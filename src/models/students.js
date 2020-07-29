@@ -14,7 +14,7 @@ module.exports = {
     })
   },
   insertStudent: async function(data) {
-    const query = `INSERT INTO ${table} SET ?`
+    const query = `INSERT INTO ${table} (name, address) VALUES ?`
     return new Promise(function (resolve, reject) {
       db.query(query, data, function (err, results, fields) {
         if (err) {
