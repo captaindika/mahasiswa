@@ -12,5 +12,17 @@ module.exports = {
         }
       })
     })
+  },
+  insertStudent: async function(data) {
+    const query = `INSERT INTO ${table} SET ?`
+    return new Promise(function (resolve, reject) {
+      db.query(query, data, function (err, results, fields) {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(results.insertId)
+        }
+      })
+    })
   }
 }
